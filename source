@@ -1,0 +1,61 @@
+/*
+* Author : Dinank Vashishth
+* Date : 24/02/2015
+*/
+
+#include<stdio.h>
+char c[9];
+
+int main(){
+c[0]=c[1]=c[2]=c[3]=c[4]=c[5]=c[6]=c[7]=c[8]=c[9]=0;
+int x=0;
+while(1){		/*Outer most while loop begin*/
+	while(1){		/*Player 1's turn*/	/*player 1 while loop begin*/
+		box();
+		printf("Player X, your turn : \n");fflush(stdout);
+		scanf("%d", &x);
+
+			if(c[x-1]!=0)
+			{
+				printf("Cell is full choose another box.");fflush(stdout);
+				continue;
+				}else{
+					c[x-1]='X';
+					break;
+				}
+
+			}	/*End of player 1 while loop*/
+
+	while(1){		/*Player 2's turn and player 2 while loop begin*/
+		box();
+		printf("Player O, your turn : \n");fflush(stdout);
+		scanf("%d", &x);
+
+			if(c[x-1]!=0)
+			{
+				printf("Cell is full choose another box.");fflush(stdout);
+				continue;
+				}else{
+					c[x-1]='O';
+					break;
+				}
+
+			}	/*End of player 2 while loop*/
+		}		/*End of outer most while loop*/
+box();
+return 0;
+}
+
+/************************************************************************************/
+
+/*Function to show the box.*/
+void box (){
+printf( "\n"
+		"     |    |    \n"
+		"   %c | %c  | %c \n"
+		"  ___|____|____\n"
+		"   %c | %c  | %c \n"
+		"  ___|____|____\n"
+		"   %c | %c  | %c \n"
+		"     |    |    \n", c[0], c[1], c[2], c[3], c[4], c[5], c[6], c[7], c[8]);fflush(stdout);
+}
